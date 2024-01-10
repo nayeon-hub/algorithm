@@ -24,10 +24,6 @@ class Stack {
     this.size -= 1;
     return value;
   }
-
-  size() {
-    return this.size;
-  }
 }
 
 const stack = new Stack();
@@ -50,19 +46,3 @@ stackArr.pop();
 console.log(stackArr);
 
 console.log(stackArr.length - 1);
-
-function solution(s) {
-  let answer = true;
-  let closeStack = [];
-  s = s.replace(/\(\)/g, "");
-
-  for (let str of s) {
-    if (closeStack[closeStack.length - 1] === ")" && str === "(") {
-      closeStack.pop();
-    } else if (str === "(") {
-      closeStack.push(str);
-    }
-  }
-
-  return closeStack.length ? false : true;
-}
